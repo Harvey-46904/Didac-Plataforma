@@ -24,14 +24,18 @@
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
 		      
-		      	<form action="#" class="signin-form">
+		      	<form  class="signin-form" method="POST" action="{{ route('login') }}">
+					{{ csrf_field() }}
 		      		<div class="form-group">
-		      			<input type="text" class="form-control" placeholder="Usuario" required>
+		      			<input type="text" class="form-control" placeholder="Usuario" id="Email" name="Email" required>
 		      		</div>
 	            <div class="form-group">
-	              <input id="password-field" type="password" class="form-control" placeholder="Contraseña" required>
+	              <input id="password-field" type="password" class="form-control" placeholder="Contraseña" id="contraseña" name="contraseña"required>
 	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 	            </div>
+				@if (Session::get('msgerror'))
+              <div class="alert alert-danger"><strong>{!! \Session::get('msgerror') !!}</strong></div>
+              @endif
 	            <div class="form-group">
 	            	<button type="submit" class="form-control btn btn-primary submit px-3">Iniciar Sesión</button>
 	            </div>
@@ -43,7 +47,7 @@
 									</label>
 								</div>
 								<div class="w-50 text-md-right">
-									<a href="#" style="color: #fff">Olvide Mi Contraseña</a>
+								
 								</div>
 	            </div>
 	          </form>
