@@ -17,3 +17,4 @@ Route::get('/', function () {
     return view('index');
 });
 Route::post('login',"UsuariosController@Login")->name('login');
+Route::get('salir',"UsuariosController@destroy")->name('salir');

@@ -78,10 +78,7 @@ class UsuariosController extends Controller
      * @param  \App\Models\usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function destroy(usuarios $usuarios)
-    {
-        //
-    }
+   
     public function Login(Request $request){
         $data=$request->all();
         
@@ -106,5 +103,10 @@ class UsuariosController extends Controller
             return back()->with('msgerror', 'El Correo Es Incorrecto');
         }
         
+    }
+    public function destroy()
+    {
+        //session()->flush();
+        return view("index");
     }
 }
